@@ -1,0 +1,40 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Lab1_UI_Comments/1.0.0": {
+        "dependencies": {
+          "DataLibrary": "1.0.0",
+          "Dll_Library": "1.0.0"
+        },
+        "runtime": {
+          "Lab1_UI_Comments.dll": {}
+        }
+      },
+      "DataLibrary/1.0.0": {
+        "dependencies": {
+          "Dll_Library": "1.0.0"
+        },
+        "runtime": {
+          "DataLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Lab1_UI_Comments/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
