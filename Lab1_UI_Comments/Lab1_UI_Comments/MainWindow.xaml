@@ -4,8 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab1_UI_Comments"
+        xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1200">
+        Title="MainWindow" Height="600" Width="1800">
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:Commands.SplineData}"
+                CanExecute = "RightSplineData" Executed="Button_Click_DoSplines"/>
+        <CommandBinding Command="{x:Static local:Commands.RawDataFileCommand}"
+                CanExecute = "RightInfo" Executed="Button_Click_Load"/>
+        <CommandBinding Command="ApplicationCommands.Save"
+            CanExecute = "RawData_IsNull" Executed = "Button_Click_Save"/>
+        <CommandBinding Command="{x:Static local:Commands.RawDataControls}"
+                CanExecute = "RightInput" Executed="RawDataControls"/>
+        
+    </Window.CommandBindings>
     <Window.Resources>
         <DataTemplate x:Key="key_template">
             <TextBlock  Text="{Binding Path = Method.Name}" />
@@ -22,23 +35,32 @@
         </DataTemplate>
         <local:IntervalConverter x:Key="myConverter" />
     </Window.Resources>
-    <Grid>
+    <Grid Margin="0,0,602,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="83*"/>
             <RowDefinition Height="501*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="41*"/>
-            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="328*"/>
+            <ColumnDefinition Width="777*"/>
+            <ColumnDefinition Width="93*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Info" Margin="434,7,102,44" Click="Button_Click" Grid.Column="1"/>
+        <Button Content="Info" Margin="434,7,74,44" Click="Button_Click" Grid.Column="1"/>
         <StackPanel Margin="10,23,66,0"  VerticalAlignment="Top" Height="55">
             <TextBlock HorizontalAlignment="Left" Text ="Концы отрезка" Margin="2"  VerticalAlignment="Top" />
             <TextBox HorizontalAlignment="Stretch" Margin="2"  Name="textbox_end" Width="245">
                 <TextBox.Text>
                     <MultiBinding Converter="{StaticResource myConverter}">
-                        <Binding Path="leftEnd"/>
-                        <Binding Path="rightEnd"/>
+                        <Binding Path="leftEnd">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                        <Binding Path="rightEnd">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
                     </MultiBinding>
                 </TextBox.Text>
             </TextBox>
@@ -46,9 +68,9 @@
         <StackPanel Margin="10,56,53,0"  VerticalAlignment="Top" Grid.Row="1" Height="54">
             <TextBlock HorizontalAlignment="Left" Text ="Число узлов интерполяции" Margin="2"  VerticalAlignment="Top" />
             <TextBox 
-                     Text="{Binding nRawNodes}" Width="255"/>
+                     Text="{Binding nRawNodes, ValidatesOnDataErrors=True}" Width="255"/>
         </StackPanel>
-        <StackPanel Margin="255,2,2,0"  VerticalAlignment="Top" Height="0" Grid.Column="1"/>
+        <StackPanel Margin="255,2,2,0"  VerticalAlignment="Top" Height="0" Grid.Column="1" Grid.ColumnSpan="2"/>
         <StackPanel Margin="10,189,75,0"  VerticalAlignment="Top" Grid.Row="1" Height="62">
             <TextBlock HorizontalAlignment="Left" Text ="Функция для RawData" Margin="2"  VerticalAlignment="Top" />
             <ComboBox 
@@ -61,7 +83,7 @@
         <StackPanel Margin="0,115,42,0"  VerticalAlignment="Top" Grid.Row="1" Height="54">
             <TextBlock HorizontalAlignment="Left" Text ="Число узлов равномерной сетки" Margin="2"  VerticalAlignment="Bottom" />
             <TextBox 
-                     Text="{Binding nGrid}" Width="259"/>
+                     Text="{Binding nGrid, ValidatesOnDataErrors=True}" Width="259"/>
         </StackPanel>
         <StackPanel Margin="10,255,75,0"  VerticalAlignment="Top" Grid.Row="1" Height="64">
             <TextBlock HorizontalAlignment="Left" Text ="Производная слева" Margin="2"  VerticalAlignment="Bottom" />
@@ -73,33 +95,34 @@
             <TextBox 
                      Text="{Binding rightDer}" Width="235"/>
         </StackPanel>
-        <Button Content="RawData from controls" HorizontalAlignment="Left" Margin="10,220,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_DoSplines" Height="28" Width="191" Grid.Column="1"/>
-        <StackPanel Margin="0,83,568,272" Grid.Column="1" Grid.RowSpan="2">
+        <Button Content="RawData from controls" HorizontalAlignment="Left" Margin="10,220,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_DoSplines" Height="28" Width="191" Grid.Column="1" Command="{x:Static local:Commands.RawDataControls}"/>
+        <StackPanel Margin="0,83,467,272" Grid.Column="1" Grid.RowSpan="2">
             <TextBlock HorizontalAlignment="Left" Text ="Вывод RawData" Margin="2"  VerticalAlignment="Bottom" />
-            <ListBox Height="174" Width="295" Name="lb_rawData" FontSize="10"/>
+            <ListBox Height="174" Width="292" x:Name="lb_rawData" FontSize="10"/>
         </StackPanel>
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="262" Margin="328,3,0,0" Grid.Row="1" VerticalAlignment="Top" Width="421">
             <TextBlock HorizontalAlignment="Left" Text ="Вывод SplinesData" Margin="2"  VerticalAlignment="Bottom" />
             <ListBox Height="174" Width="403" x:Name="lb_splinesData" FontSize="10" SelectionChanged="lb_splinesData_SelectionChanged" ItemTemplate="{StaticResource splines_data}"/>
         </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="56" Margin="335,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="535">
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="56" Margin="225,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="552">
             <TextBlock HorizontalAlignment="Left" Text ="Выбранная точка" Margin="2"  VerticalAlignment="Bottom" />
-            <TextBlock HorizontalAlignment="Left" Margin="2" Name ="selected_tb" Width="528"/>
+            <TextBlock HorizontalAlignment="Left" Margin="2" Name ="selected_tb" Width="542"/>
         </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="56" Margin="335,299,0,0" Grid.Row="1" VerticalAlignment="Top" Width="535">
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="56" Margin="335,299,0,0" Grid.Row="1" VerticalAlignment="Top" Width="535" Grid.ColumnSpan="2">
             <TextBlock HorizontalAlignment="Left" Text ="Значение интеграла" Margin="2"  VerticalAlignment="Bottom" />
             <TextBlock HorizontalAlignment="Left" Margin="2" x:Name ="integral_tb" Width="528"/>
         </StackPanel>
-        <Menu Grid.Column="1" Margin="0,2,732,39">
+        <Menu Grid.Column="1" Margin="0,2,641,39">
             <MenuItem Header="File">
-                <MenuItem Header="Save" Click="Button_Click_Save"/>
+                <MenuItem Header="Save" Click="Button_Click_Save"  Command="ApplicationCommands.Save"/>
             </MenuItem>
             <MenuItem Header="Execute">
-                <MenuItem Header="RawData from controls" Click="Button_Click_DoSplines"/>
-                <MenuItem Header="RawData from file" Click="Button_Click_Load"/>
+                <MenuItem Header="RawData from controls" Click="Button_Click_DoSplines" Command="{x:Static local:Commands.RawDataControls}"/>
+                <MenuItem Header="RawData from file" Click="Button_Click_Load" Command="{x:Static local:Commands.RawDataFileCommand}"/>
             </MenuItem>
         </Menu>
-        <Button Grid.Column="1" Content="RawData from file" HorizontalAlignment="Left" Height="34" Margin="10,263,0,0" Grid.Row="1" VerticalAlignment="Top" Width="191" Click="Button_Click_Load"/>
-        <Button Grid.Column="1" Content="Save" HorizontalAlignment="Left" Height="31" Margin="10,309,0,0" Grid.Row="1" VerticalAlignment="Top" Width="191"  Click="Button_Click_Save"/>
+        <Button Grid.Column="1" Content="RawData from file" HorizontalAlignment="Left" Height="34" Margin="10,263,0,0" Grid.Row="1" VerticalAlignment="Top" Width="191" Click="Button_Click_Load" Command="{x:Static local:Commands.RawDataFileCommand}"/>
+        <Button Grid.Column="1" Content="Save" HorizontalAlignment="Left" Height="31" Margin="10,309,0,0" Grid.Row="1" VerticalAlignment="Top" Width="191"  Click="Button_Click_Save"  Command="ApplicationCommands.Save"/>
+        <oxy:PlotView Margin="0,83,-602,161" Grid.Column="2" Grid.RowSpan="2" Model= "{Binding plotModel}"/>
     </Grid>
 </Window>
