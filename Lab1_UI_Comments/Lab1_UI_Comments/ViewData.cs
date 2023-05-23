@@ -75,16 +75,17 @@ namespace Lab1_UI_Comments
             rightEnd = 1;
             nRawNodes = 5;
             nGrid = 10;
+            isUniform = true;
             plotModel = new PlotModel { Title = "График получившегося сплайна" };
             listFRaw = new List<FRaw>();       // для способа 2
             listFRaw.Add(RawData.Linear);      // для способа 2
             listFRaw.Add(RawData.Random);   // для способа 2
             listFRaw.Add(RawData.Cubic); // для способа 2
-            fRaw = listFRaw[2];                // для способа 2
+            fRaw = listFRaw[1];                // для способа 2
+            rawData = new RawData(leftEnd, rightEnd, nRawNodes, isUniform, fRaw);
         }
         public void ExecuteSplines()
         {
-            rawData = new RawData(leftEnd, rightEnd, nRawNodes, isUniform, fRaw); 
             splinesData = new SplinesData(rawData, leftDer, rightDer, nGrid);
             splinesData.DoSplines();
         }

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "3betI5dMfEglz3TaB2ejvDXOA6VPI6qqf2mAmVbLre+S1Q4k5U6gEcg458wf3w1GPhVwbxA+q0Kvcy8T5C5AuA==",
+  "dgSpecHash": "zV9AgARrybPnJyZ056cgkRhh2RePNPowomvkFiklCwH81pO1Co0dvCkgTZHu4Ul52gfU1ltfF6u2YRMiTeeH0w==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\Desktop\\PAPKA\\C#\\cs_6sem\\Lab1_UI_Comments\\Lab1_UI_Comments\\Lab1_UI_Comments.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\oxyplot.core\\2.1.2\\oxyplot.core.2.1.2.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\oxyplot.wpf\\2.1.2\\oxyplot.wpf.2.1.2.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\oxyplot.wpf.shared\\2.1.2\\oxyplot.wpf.shared.2.1.2.nupkg.sha512"
+  ],
   "logs": []
 }

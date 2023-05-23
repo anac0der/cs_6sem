@@ -38,7 +38,7 @@ namespace DataLibrary
             }
             else
             {
-                Random rng = new Random();
+                Random rng = new Random(1);
                 for (int i = 0; i < nRawNodes - 2; ++i)
                 {
                     rawNodes[i] = leftEnd + (rightEnd - leftEnd) * rng.NextDouble();

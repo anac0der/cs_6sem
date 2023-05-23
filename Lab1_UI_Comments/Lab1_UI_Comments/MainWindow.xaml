@@ -7,7 +7,7 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1800">
-    
+
     <Window.CommandBindings>
         <CommandBinding Command="{x:Static local:Commands.SplineData}"
                 CanExecute = "RightSplineData" Executed="Button_Click_DoSplines"/>
@@ -17,7 +17,7 @@
             CanExecute = "RawData_IsNull" Executed = "Button_Click_Save"/>
         <CommandBinding Command="{x:Static local:Commands.RawDataControls}"
                 CanExecute = "RightInput" Executed="RawDataControls"/>
-        
+
     </Window.CommandBindings>
     <Window.Resources>
         <DataTemplate x:Key="key_template">
@@ -95,7 +95,7 @@
             <TextBox 
                      Text="{Binding rightDer}" Width="235"/>
         </StackPanel>
-        <Button Content="RawData from controls" HorizontalAlignment="Left" Margin="10,220,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_DoSplines" Height="28" Width="191" Grid.Column="1" Command="{x:Static local:Commands.RawDataControls}"/>
+        <Button Content="RawData from controls" HorizontalAlignment="Left" Margin="10,220,0,0" Grid.Row="1" VerticalAlignment="Top"  Height="28" Width="191" Grid.Column="1" Command="{x:Static local:Commands.RawDataControls}"/>
         <StackPanel Margin="0,83,467,272" Grid.Column="1" Grid.RowSpan="2">
             <TextBlock HorizontalAlignment="Left" Text ="Вывод RawData" Margin="2"  VerticalAlignment="Bottom" />
             <ListBox Height="174" Width="292" x:Name="lb_rawData" FontSize="10"/>
@@ -124,5 +124,6 @@
         <Button Grid.Column="1" Content="RawData from file" HorizontalAlignment="Left" Height="34" Margin="10,263,0,0" Grid.Row="1" VerticalAlignment="Top" Width="191" Click="Button_Click_Load" Command="{x:Static local:Commands.RawDataFileCommand}"/>
         <Button Grid.Column="1" Content="Save" HorizontalAlignment="Left" Height="31" Margin="10,309,0,0" Grid.Row="1" VerticalAlignment="Top" Width="191"  Click="Button_Click_Save"  Command="ApplicationCommands.Save"/>
         <oxy:PlotView Margin="0,83,-602,161" Grid.Column="2" Grid.RowSpan="2" Model= "{Binding plotModel}"/>
+        <Button Grid.Column="1" Content="Calculate splines" Click ="Button_Click_DoSplines" HorizontalAlignment="Left" Margin="10,383,0,0" Grid.Row="1" VerticalAlignment="Top" Width="191" Height="33"/>
     </Grid>
 </Window>

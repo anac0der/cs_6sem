@@ -45,3 +45,15 @@ C:\Users\PC\Downloads\_ООП_UI_2022_2023\Lab1_UI_Comments\DataLibrary\bin\Debu
 C:\Users\PC\Downloads\_ООП_UI_2022_2023\Lab1_UI_Comments\DataLibrary\bin\Debug\net6.0\DataLibrary.dll
 C:\Users\PC\Downloads\_ООП_UI_2022_2023\Lab1_UI_Comments\DataLibrary\bin\Debug\net6.0\DataLibrary.pdb
 C:\Users\PC\Downloads\_ООП_UI_2022_2023\Lab1_UI_Comments\DataLibrary\obj\Debug\net6.0\ref\DataLibrary.dll
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\bin\Debug\net6.0\DataLibrary.deps.json
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\bin\Debug\net6.0\DataLibrary.dll
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\bin\Debug\net6.0\DataLibrary.pdb
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\obj\Debug\net6.0\DataLibrary.csproj.AssemblyReference.cache
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\obj\Debug\net6.0\DataLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\obj\Debug\net6.0\DataLibrary.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\obj\Debug\net6.0\DataLibrary.AssemblyInfo.cs
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\obj\Debug\net6.0\DataLibrary.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\obj\Debug\net6.0\DataLibrary.dll
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\obj\Debug\net6.0\refint\DataLibrary.dll
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\obj\Debug\net6.0\DataLibrary.pdb
+C:\Users\PC\Desktop\PAPKA\C#\cs_6sem\Lab1_UI_Comments\DataLibrary\obj\Debug\net6.0\ref\DataLibrary.dll

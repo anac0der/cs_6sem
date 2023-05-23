@@ -37,10 +37,18 @@ namespace Lab1_UI_Comments
         {
             viewData.ExecuteSplines();
             lb_rawData.Items.Clear();
-            for(int i = 0; i < viewData.nRawNodes; ++i)
+            try
             {
-                lb_rawData.Items.Add($"x = {viewData.rawData.rawNodes[i].ToString("F3")} value = {viewData.rawData.rawValues[i].ToString("F3")}");
+                for (int i = 0; i < viewData.nRawNodes; ++i)
+                {
+                    lb_rawData.Items.Add($"x = {viewData.rawData.rawNodes[i].ToString("F3")} value = {viewData.rawData.rawValues[i].ToString("F3")}");
+                }
             }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Данные изменились, сначала нажмите кнопку RawData from source!");
+            }   
             lb_splinesData.ItemsSource = viewData.splinesData.values;
             integral_tb.Text = viewData.splinesData.integral.ToString("F3");
             try
@@ -95,9 +103,13 @@ namespace Lab1_UI_Comments
             try
             {
                 viewData.Load(filename);
+                lb_rawData.Items.Clear();
+                for (int i = 0; i < viewData.nRawNodes; ++i)
+                {
+                    lb_rawData.Items.Add($"x = {viewData.rawData.rawNodes[i].ToString("F3")} value = {viewData.rawData.rawValues[i].ToString("F3")}");
+                }
                 this.DataContext = null;
                 this.DataContext = viewData;
-                Button_Click_DoSplines(sender, e);
             }
             catch (Exception ex)
             {
